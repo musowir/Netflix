@@ -11,7 +11,7 @@ function Banner(props) {
     
 
         axios.get(props.url).then((response)=>{
-            setMovie(response.data.results[1])
+            setMovie(response.data.results[0])
             
         })
         
