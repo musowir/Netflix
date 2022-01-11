@@ -1,5 +1,6 @@
 import React from 'react'
 import './NavBar.css'
+import {Link} from 'react-router-dom';
 
 function NavBar() {
     return (
@@ -7,11 +8,11 @@ function NavBar() {
             
             <img className='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png" alt="" />
             <div className="navtitles">
-            <a href ="" className='navtitle'>Home</a>&nbsp;
-            <a href ="" className='navtitle'>Movies</a>&nbsp;
-            <a href ="" className='navtitle'>TV Shows</a>&nbsp;
-            <a href ="" className='navtitle'>Recently Added</a>&nbsp;
-            <a href ="" className='navtitle'>My List</a>&nbsp;
+            <Link className='navtitle' to={'../'} activeClassName="active">Home</Link>
+            <Link className='navtitle' to={'../movies'} activeClassName="active">Movies</Link>
+            <Link className='navtitle' to={'../tv'} activeClassName="active">TV Shows</Link>
+            <Link className='navtitle' to={'../'} activeClassName="active">Recently Added</Link>
+            <Link className='navtitle' to={'../'} activeClassName="active">My List</Link>
             </div>
             
             <div className="navright">

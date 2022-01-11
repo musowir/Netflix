@@ -1,22 +1,26 @@
 import './App.css'
 import React from 'react'
+import {Route, Routes} from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar';
-import Banner from './Components/Banner/Banner';
-import RowPost from './Components/RowPost/RowPost';
-import {trending, action, originals, ComedyMovies, HorrorMovies, RomanceMovies, Documentaries} from './Constants/urls'
+import HomePage from './Components/Home/HomePage';
+import Movies from './Components/Movies/Movies';
+import Tv from './Components/tv/Tv'
+import {useState} from 'react'
+
 
 function App() {
+  const [state, setState] = useState()
   return (
     <div>
-     <NavBar/>
-     <Banner url={trending}/>
-     <RowPost url={originals} title='Netflix Orginals' />
-     <RowPost url={action} title='Actions' isSmall/>
-     <RowPost url={ComedyMovies} title='Comedy Movies' isSmall/>
-     <RowPost url={HorrorMovies} title='Horror Movies' isSmall/>
-     <RowPost url={RomanceMovies} title='Romance Movies' isSmall/>
-     <RowPost url={Documentaries} title='Documentaries' isSmall/>
-
+     <NavBar/> 
+     
+        <Routes>
+          <Route path='/' element={<HomePage/>} />
+          <Route element={<HomePage/>} path='/home' />
+          <Route element={<Movies/>} path='/movies' />
+          <Route element={<Tv/>} path='/tv'/>
+        </Routes>
+        
    </div>
   );
 }

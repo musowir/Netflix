@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import {API_KEY, imageUrl} from '../../Constants/constants'
+import {API_KEY, pimageUrl, simageUrl} from '../../../Constants/constants'
 import YouTube from 'react-youtube'
 import './RowPost.css'
-import axios from '../../axios'
+import axios from '../../../axios'
 
 
 function RowPost(props) {
@@ -24,14 +24,14 @@ const [movsel, setMovesel] = useState({})
           autoplay: 0,
         }};
         const thisMovie = (id)=>{
-            axios.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`).then((Response)=>{
+            axios.get(`/tv/${id}?api_key=${API_KEY}&language=en-US`).then((Response)=>{
                 console.log(Response.data);
                 setMovesel(Response.data);
                 console.log(movsel);
             })
         }
         const handleMovie = (id)=>{
-            axios.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then((Response)=>{
+            axios.get(`/tv/${id}/videos?api_key=${API_KEY}&language=en-US`).then((Response)=>{
                 setYid(Response.data.results[0].key)
             })
         }
@@ -41,24 +41,27 @@ const [movsel, setMovesel] = useState({})
             <h3>{props.title}</h3>
             <div className="posters">
                 {movies.map((obj)=>
-                <img onClick={()=>{handleMovie(obj.id);thisMovie(obj.id)}} className={props.isSmall? 'small_poster' : 'poster'} src={`${imageUrl+obj.backdrop_path}`} alt="" />
+                <img onClick={()=>{handleMovie(obj.id);thisMovie(obj.id)}} className={props.isSmall? 'small_poster' : 'poster'} src={`${simageUrl+obj.backdrop_path}`} alt="" />
             )}
             </div>
             
-            {Yid &&
+            {movsel.name &&
             <div className="details">
+                <div className="detailwrap">
                 <div className="post">
-                    <img className='postimg' src={`${imageUrl}${movsel.poster_path}`} alt="" />
+                    <img className='postimg' src={`${pimageUrl}${movsel.poster_path}`} alt="" />
                 </div>
                 <div className='det'>
                     
-                    <h2>{movsel.title}</h2>
+                    {movsel.original_name===movsel.name ? <h2>{movsel.name}</h2> :<h2>{movsel.name}({movsel.original_name})</h2> }
                     <p><i>{movsel.tagline}</i></p><br />
-                    <p style={{color : 'yellow'}}>{movsel.release_date} | vote average : {movsel.vote_average}</p>
+                    <p style={{color : 'yellow'}}>{movsel.number_of_seasons===1 ? movsel.number_of_episodes+' episodes' : movsel.number_of_episodes+' seasons'} | vote average : {movsel.vote_average}</p>
                     <br/><p>{movsel.overview}</p>
                 </div>
-                <div className="video"> <YouTube videoId={Yid} opts={opts} /></div>
+                </div>
+                {/* <div className="video"> <YouTube videoId={Yid} opts={opts} /></div> */}
             </div>}
+            
         </div>
     )
 }

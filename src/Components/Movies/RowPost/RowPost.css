@@ -1,0 +1,60 @@
+.row{
+    display: block;
+    margin-left: 20px;
+    color: white;
+
+}
+.posters{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: center;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+.posters::-webkit-scrollbar{
+    display: none;
+}
+
+.poster{
+    max-height: 200px;
+    margin-right: 10px;
+    cursor: pointer;
+
+}
+
+.small_poster{
+    max-height: 150px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.poster:hover,.small_poster:hover{
+    transform: scale(1.09);
+}
+
+.details{
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+}
+.video{
+    float:left;
+}
+.det{
+    float: left;
+    margin-right: 20px;
+    padding: 40px;
+    max-width: 450px;
+}
+.post{
+    align-items: center;
+    float: left;
+    margin:5px
+}
+.postimg{
+    height: 250px;
+}

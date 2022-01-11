@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import './Banner.css'
-import axios from '../../axios'
-import {imageUrl} from '../../Constants/constants'
+import axios from '../../../axios'
+import {imageUrl} from '../../../Constants/constants'
 
 function Banner(props) {
     
@@ -23,7 +23,7 @@ function Banner(props) {
         className='banner'>
 
             <div className='content'>
-                <h1 className="title">{movie.title}</h1>
+                <h1 className="title">{movie.name}{movie.title}</h1>
                 <div className="banner_buttons">
                     <button className="button"><i className='caret' class="bi bi-play-fill"></i>Play</button>
                     <button className="button"><i className='caret' class="bi bi-plus"></i>My List</button>
