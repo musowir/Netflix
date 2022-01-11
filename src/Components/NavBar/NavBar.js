@@ -8,10 +8,10 @@ function NavBar() {
             
             <img className='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png" alt="" />
             <div className="navtitles">
-            <Link className='navtitle' to={'../'} activeClassName="active">Home</Link>
-            <Link className='navtitle' to={'../movies'} activeClassName="active">Movies</Link>
-            <Link className='navtitle' to={'../tv'} activeClassName="active">TV Shows</Link>
-            <Link className='navtitle' to={'../'} activeClassName="active">Recently Added</Link>
+            <Link className='navtitle' to={'../'} activeClassName="active">Home</Link> &emsp;
+            <Link className='navtitle' to={'../movies'} activeClassName="active">Movies</Link> &emsp;
+            <Link className='navtitle' to={'../tv'} activeClassName="active">TV Shows</Link> &emsp;
+            <Link className='navtitle' to={'../'} activeClassName="active">Recently Added</Link> &emsp;
             <Link className='navtitle' to={'../'} activeClassName="active">My List</Link>
             </div>
             
